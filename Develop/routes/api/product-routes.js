@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   try {
-    const productData = await Category.findByPk(req.params.id, {
-         include: [{ model: Category, through: Product, as: 'product_tag' }]
+    const productData = await Category.findAll({
+         include: [{ model: Category }, { model: Tag, through: ProductTag }]
     });
 
     if (!productData) {
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
       try {
       const productData = await Product.findByPk(req.params.id, {
         
-        include: [{ model: Category, through: Product, as: 'product_tag' }]
+        include: [{ model: Category }, { model: Tag, through: ProductTag }]
       });
   
       if (!productData) {
@@ -122,6 +122,18 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  try {
+    const productData = await Product.destroy({
+      where: { id: req.params.id }
+    });
+    if (!productData) {
+      res.status(404).json({ message: 'No product with this id!' });
+      return;
+    }
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
