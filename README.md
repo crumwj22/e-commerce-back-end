@@ -18,6 +18,7 @@ This assignment is to build the back end for an e-commerce site by modifying sta
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
+- [Link to walk through Video](#walk-through-video)
 
 ## Installation
 
@@ -50,4 +51,6 @@ Please read the installation section. For the repository owner, contribution gui
 If you have additional questions about this project please contact me directly at <crumwj22@hotmail.com>.
 You can view more of my projects at <https://github.com/crumwj22>.
 
-<a href="https://www.youtube.com/watch?v=UNKiSrB7XAc">Link to README test video</a>
+## Walk Through Video
+
+<a href="https://www.youtube.com/watch?v=LehJ4FnkJzM">Link to E-Commerce back end walk through video</a>
